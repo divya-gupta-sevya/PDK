@@ -1,3 +1,8 @@
+The purpose of doing DRC - Design Rule Checks, is to make sure that all the polygons and layers from the layout database follow through the manufacturing process guidelines. This follow through is ensured by running the layout against a DRC rule deck provided by the fabrication team in order for the design to meet functionality, manufacturability and avoid chip failure. If the results thus obtained fall within permissible margin set up by fabs, the design is said to be Clean, else it’s said to be ‘Dirty’ (needs to be fixed and made clean). 
+
+![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/DRC%20Flow.jpg)
+Fig. DRC Flow
+
 
 Input:
 1. Rule File (SVRF / TVF)
