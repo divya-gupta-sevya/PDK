@@ -10,15 +10,6 @@ Fig. DRC Flow
 2. Layout Database (GDSII, OASIS, Binary, ASCII)
     Binary & ASCII are properietary to Metor Graphics Corporation and only work in flat Calibre nmDRC.
 
-### Output:
-1. Run Transcript
-2. DRC Results Database
-3. DRC Summary Report (optional)
-
-DRC Results Database can be ASCII (default), GDSII, OASIS, or Binary. Generally should output an ASCII DRC results database. 
-When you use Calibre nmDRC-H for mask layer generation, you should output a GDSII or OASIS DRC results database, you should also specify DRC Maximum Results ALL
-in this case. You should follow these guidelines because Calibre nmDRC-H requires extra internal overhead to generate mask layer results.
-
 ### Command Line Invocations:
 
 Flat run (Calibre nmDRC)
@@ -149,10 +140,16 @@ You can limit the number of DRC results written to the DRC results database for 
     INTERNAL x < 3
     }
     
-    ```
+```
+### Output:
+1. *Run Transcript* - shows statistics regarding Rule File Compilation, Layout Data Input, Executive Processes. It shows the pathname of the rule file, the contents of the rule file, and the amount of CPU and real time required for compilation, shows cell, layer, and text information, and a summary of the layout data, reports event logs, warning messages, and summary information. It also reports operating parameters, such as maximum results per check, maximum vertices per result polygon (DRC).
+    The layer statistics differs for different Calibre applications i.e., the layer statistic for layer1 in flat tun will be different than the layer statistic for layer1 in hierarchical run.
+    
+2. *DRC Results Database*
+    It is a collection of geometric objects grouped together by rule check. DRC Results Database can be ASCII (default), GDSII, OASIS, or Binary. Generally should output an ASCII DRC results database. When you use Calibre nmDRC-H for mask layer generation, you should output a GDSII or OASIS DRC results database, you should also specify DRC Maximum Results ALL in this case. You should follow these guidelines because Calibre nmDRC-H requires extra internal overhead to generate mask layer results.
 
-
-
+3. *DRC Summary Report* (optional)
+    It includes general information about the run, warnings generated during drc run, list of original layers and number of original shapes processed for that layer, list of rulechecks and number of results generated, total runtime, number of original shapes processed, number of rulechecks executed. If DRC Summary Report specification statement is present only then this file is generated. You can use REPLACE & APPEND keywords to decide whether the file should be overwritten or appended to.
 
 
 
