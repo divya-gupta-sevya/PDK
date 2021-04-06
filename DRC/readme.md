@@ -30,5 +30,21 @@ calibre -drc -hier rule_file
 calibre -drc -hier -turbo -hyper rule_file
 calibre -drc -hier -turbo -remote host1,host2,host3 -hyper rule_file
 
+# DRC
+Setup the server and path to Calibre. Click the Settings button (Spanner icon) next to Calibre Toolbar (DRC/LVS/PEX/RVE/Settings):
+For the host enter: 192.168.6.50
+For calibre give the entire path to the current tool: $CALIBRE_HOME/bin/calibre
+In L-Edit, click Run Calibre DRC from the Calibre toolbar which will launch the GUI.
+If the Load Runset File dialog box appears, you can Cancel it.
+In the GUI, click the Rules button in the left Panel and enter the following info:
+DRC Rules File: Browse to the Calibre rule file eg.
+$XFAB_CALIBRE_RUNSET/xt018_1243 You can click Load to test any problem with the rule file.
+Check Selection Recipe: Ignore
+DRC Run Directory: Ideally $PROJDIR/DRC
+Click Inputs and setup the inputs but the defaults should be Ok eg. GDSII/Export from Layout Viewer
+Click Outputs and the defaults should be fine.
+If none of the left panel buttons are red, click Run DRC
+If the run was successful, save the GUI settings to a file by clicking File->Save Runset in the DRC folder created before which can be loaded the next time.
+
 
 
