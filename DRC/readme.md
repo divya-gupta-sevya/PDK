@@ -133,14 +133,14 @@ You can limit the number of DRC results written to the DRC results database for 
     INCLUDE “/home/.../.../golden_rule_file"
     
     // ONE OR MORE DRAWN LAYER DEFINITIONS
-    LAYER diff 24 // DIFFUSION
-    LAYER poly 5 // POLY
-    LAYER metal2 9 // METAL2
-    LAYER via 12 // VIA
+    LAYER diff 24                   // DIFFUSION
+    LAYER poly 5                    // POLY
+    LAYER metal2 9                  // METAL2
+    LAYER via 12                    // VIA
     
     // ONE OR MORE DERIVED LAYER DEFINITIONS
-    gate = poly AND diff // GATE
-    sd = diff NOT gate // SOURCE-DRAIN
+    gate = poly AND diff            // GATE
+    sd = diff NOT gate              // SOURCE-DRAIN
     
     // ONE OR MORE DRC RULECHECKS
     min_gate_length {
