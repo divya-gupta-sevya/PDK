@@ -151,5 +151,5 @@ You can limit the number of DRC results written to the DRC results database for 
 3. *DRC Summary Report* (optional)
     It includes general information about the run, warnings generated during drc run, list of original layers and number of original shapes processed for that layer, list of rulechecks and number of results generated, total runtime, number of original shapes processed, number of rulechecks executed. If DRC Summary Report specification statement is present only then this file is generated. You can use REPLACE & APPEND keywords to decide whether the file should be overwritten or appended to.
 
-
+![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/heading_drc_Summary.png)
 
