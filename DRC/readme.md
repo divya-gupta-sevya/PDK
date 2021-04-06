@@ -5,12 +5,12 @@ The purpose of doing DRC - Design Rule Checks, is to make sure that all the poly
 
 Fig. DRC Flow
 
-Input:
+### Input:
 1. Rule File (SVRF / TVF)
 2. Layout Database (GDSII, OASIS, Binary, ASCII)
     Binary & ASCII are properietary to Metor Graphics Corporation and only work in flat Calibre nmDRC.
 
-Output:
+### Output:
 1. Run Transcript
 2. DRC Results Database
 3. DRC Summary Report (optional)
@@ -19,19 +19,19 @@ DRC Results Database can be ASCII (default), GDSII, OASIS, or Binary. Generally 
 When you use Calibre nmDRC-H for mask layer generation, you should output a GDSII or OASIS DRC results database, you should also specify DRC Maximum Results ALL
 in this case. You should follow these guidelines because Calibre nmDRC-H requires extra internal overhead to generate mask layer results.
 
-Command Line Invocations:
+### Command Line Invocations:
 
-# Flat run (Calibre nmDRC)
+Flat run (Calibre nmDRC)
 > calibre -drc rule_file
 
-# Hierarchical run (Calibre nmDRC-H)
+Hierarchical run (Calibre nmDRC-H)
 > calibre -drc -hier rule_file
 
-# Multithreaded hierarchical runs
+Multithreaded hierarchical runs
 > calibre -drc -hier -turbo -hyper rule_file
 > calibre -drc -hier -turbo -remote host1,host2,host3 -hyper rule_file
 
-# CALIBRE STEPS FOR DRC
+## CALIBRE STEPS FOR DRC
 Setup the server and path to Calibre. 
 
 Click the Settings button (Spanner icon) next to Calibre Toolbar (DRC/LVS/PEX/RVE/Settings):
@@ -62,9 +62,9 @@ If none of the left panel buttons are red, click Run DRC
 
 If the run was successful, save the GUI settings to a file by clicking File->Save Runset in the DRC folder created before which can be loaded the next time.
 
-# DRC Concepts
+## DRC Concepts
 DRC Concepts can be divided into:
-1. Layers
+1. *Layers*
    - Layer Types: can be Original/Drawn, Derived polygon, Derived Edge, Derived Error Layers. All the derived layers are outputted to the DRC Results Database. Derived Error Layers are the only true 'Error Layers'.
    EXAMPLES:
     ```
@@ -88,13 +88,13 @@ DRC Concepts can be divided into:
     p_diff = diffusion AND p_dope           //p+ diffusion
     n_tap = n_diff NOT OUTSIDE n_well       //n-tap areas
     ```
-2. Layer Operations
+2. *Layer Operations*
    Two types - Layer Constructors & Layer Selectors
    ```
     layer1 AND layer2                       // **constructs** /creates new polygons from the polygon data on both input layers.
     layer1 COINCIDENT EDGE layer2           // **selects** edges or edge segments from the first input layer that are coincident with edges from the second input layer.
     ```
-3. Rule Check Statements
+3. *Rule Check Statements*
    They specify layer operations within the rule file that instantiate the resulting derived layers into the DRC (or ERC) results database.
    Syntax:
    
@@ -109,7 +109,7 @@ DRC Concepts can be divided into:
     3 ways-     //      OR      @       OR      /* ... */
     The last way of commenting is for multi-line comments.
 
-4. Dimensional Check Operations
+4. *Dimensional Check Operations*
    The dimensional check operations generate derived error layers, derived edge layers, or derived polygon layers by measuring the separation of edges on one- or two-input layers.
     
     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/dimensional_check_operations.png)
