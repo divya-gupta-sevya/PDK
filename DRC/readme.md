@@ -31,7 +31,8 @@ calibre -drc -hier -turbo -hyper rule_file
 calibre -drc -hier -turbo -remote host1,host2,host3 -hyper rule_file
 
 # DRC
-Setup the server and path to Calibre. Click the Settings button (Spanner icon) next to Calibre Toolbar (DRC/LVS/PEX/RVE/Settings):
+Setup the server and path to Calibre. 
+Click the Settings button (Spanner icon) next to Calibre Toolbar (DRC/LVS/PEX/RVE/Settings):
 For the host enter: 192.168.6.50
 For calibre give the entire path to the current tool: $CALIBRE_HOME/bin/calibre
 In L-Edit, click Run Calibre DRC from the Calibre toolbar which will launch the GUI.
