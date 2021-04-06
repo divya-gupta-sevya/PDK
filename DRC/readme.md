@@ -85,8 +85,10 @@ DRC Concepts can be divided into:
    - Layer Definitions: 
     Here we assign names to derived layers, these can be used in another rule file operation by referencing its name.
     ```
-    p_diff = diffusion AND p_dope           //p+ diffusion
-    n_tap = n_diff NOT OUTSIDE n_well       //n-tap areas
+    p_diff = diffusion AND p_dope           // p+ diffusion
+    n_tap = n_diff NOT OUTSIDE n_well       // n-tap areas
+    LAYER diff 24                           // DIFFUSION layer with GDS layer number 24
+
     ```
 2. *Layer Operations*
    Two types - Layer Constructors & Layer Selectors
@@ -113,6 +115,43 @@ DRC Concepts can be divided into:
    The dimensional check operations generate derived error layers, derived edge layers, or derived polygon layers by measuring the separation of edges on one- or two-input layers.
     
     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/dimensional_check_operations.png)
+
+You can limit the number of DRC results written to the DRC results database for any given DRC rule check by using the DRC Maximum Results specification statement, or by using the MAXIMUM RESULTS parameter to the DRC Check Map specification statement. By default, this maximum result limit is 1000 per DRC rule check.
+
+## SIMPLE RULE FILE
+   ```
+    //--------------------------------
+    //OPTIONAL HEADER INFORMATION
+    //--------------------------------
+    // REQUIRED DRC SPECIFICATION STATEMENTS
+    LAYOUT SYSTEM GDSII
+    LAYOUT PATH “./mydesign.gds”
+    LAYOUT PRIMARY top_cell
+    DRC RESULTS DATABASE “../drc_results”
+    
+    // OPTIONAL INCLUDED RULE FILES
+    INCLUDE “/home/.../.../golden_rule_file"
+    
+    // ONE OR MORE DRAWN LAYER DEFINITIONS
+    LAYER diff 24 // DIFFUSION
+    LAYER poly 5 // POLY
+    LAYER metal2 9 // METAL2
+    LAYER via 12 // VIA
+    
+    // ONE OR MORE DERIVED LAYER DEFINITIONS
+    gate = poly AND diff // GATE
+    sd = diff NOT gate // SOURCE-DRAIN
+    
+    // ONE OR MORE DRC RULECHECKS
+    min_gate_length {
+    @ Gate length along POLY must be >= 3 microns.
+    x = INSIDE EDGE poly diff
+    INTERNAL x < 3
+    }
+    
+    ```
+
+
 
 
 
