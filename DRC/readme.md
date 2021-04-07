@@ -59,13 +59,17 @@ DRC Concepts can be divided into:
    - Layer Types: can be Original/Drawn, Derived polygon, Derived Edge, Derived Error Layers. All the derived layers are outputted to the DRC Results Database. Derived Error Layers are the only true 'Error Layers'.
    EXAMPLES:
     ```
-    ORIGINAL LAYER:
+    ORIGINAL/ DRAWN LAYER:
     LAYER M1 2                          // simple layer      
     LAYER MET 3 4 5                     // layer set
-
+    
+    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/drawn%20layers.png)
+    
     DERIVED POLYGON LAYER:
     gate = poly and oxide
-
+    
+    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/derived%20polygon%20layers.png)
+    
     DERIVED EDGE LAYER:
     long_metal_edge = length metal > 5
 
@@ -81,6 +85,10 @@ DRC Concepts can be divided into:
     LAYER diff 24                           // DIFFUSION layer with GDS layer number 24
 
     ```
+    SVRF statements can refer to layers by name or number.
+    A Global layer is defined outside of a rulecheck.
+    A Local layer is defined within a rulecheck.
+    
 2. *Layer Operations*
    Two types - Layer Constructors & Layer Selectors
    ```
@@ -88,6 +96,7 @@ DRC Concepts can be divided into:
     layer1 COINCIDENT EDGE layer2           // **selects** edges or edge segments from the first input layer that are coincident with edges from the second input layer.
     ```
 3. *Rule Check Statements*
+   A rulecheck is added to the rulefile to check one or more design rules.
    They specify layer operations within the rule file that instantiate the resulting derived layers into the DRC (or ERC) results database.
    Syntax:
    
@@ -98,6 +107,8 @@ DRC Concepts can be divided into:
         .
    }
     
+    Calibre keeps layer data in memory until it is no longer needed by another rulecheck.
+    
     RuleCheck Comments:
     3 ways-     //      OR      @       OR      /* ... */
     The last way of commenting is for multi-line comments.
@@ -107,7 +118,43 @@ DRC Concepts can be divided into:
     
     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/dimensional_check_operations.png)
 
-You can limit the number of DRC results written to the DRC results database for any given DRC rule check by using the DRC Maximum Results specification statement, or by using the MAXIMUM RESULTS parameter to the DRC Check Map specification statement. By default, this maximum result limit is 1000 per DRC rule check.
+5. *DRC Output Control Statements*
+   - DRC RESULTS DATABASE:
+        It specifies filename and type of the results database for CalibrenmDRC.
+        > DRC RESULTS DATABASE filename [type][PSEUDO|USER MERGED|USER]
+
+   - DRC MAXIMUM VERTEX:
+        It specified maximum vertex count of any polygon DRC result to be written to the DRC Results database.
+        > DRC MAXIMUM VERTEX {number | ALL}
+     
+   - DRC CHECK MAP:
+        It controls the database output structure for DRC Rulechecks.
+        ```
+            DRC CHECK MAP rule_check
+            {{GDSII|OASIS}[layer[datatype]]}|ASCII|
+            BINARY[filename][MAXIMUM RESULTS{max|ALL}]
+            [MAXIMUM VERTICES{maxvertex|ALL}]
+            [TEXTTAG name][PSEUDO|USER|USER MERGED]
+            {[{AREF cell_name width length
+            [minimum_element_count]
+            [SUBSTITUTE x1 y1 … xn yn ]}...]|
+            [AUTOREF]}
+        ```
+   - DRC MAP TEXT:
+        It specifies whether to translate all text objects in input database to DRC Results Database.
+        > DRC MAP TEXT {NO|YES}
+     
+   - DRC MAP TEXT DEPTH:
+        It controls the depth for reading text objects for the DRC MAP TEXT YES specification statements.
+        > DRC MAP TEXT DEPTH {ALL|PRIMARY|depth}
+     
+   - DRC SUMMARY REPORT:
+        It specifies DRC Summary Report filename and how it is written.
+        > DRC SUMMARY REPORT filename [REPLACE | APPEND][HIER]
+
+   - DRC MAXIMUM RESULTS:
+        You can limit the number of DRC results written to the DRC results database for any given DRC rule check by using the DRC Maximum Results specification statement, or by using the MAXIMUM RESULTS parameter to the DRC Check Map specification statement. By default, this maximum result limit is 1000 per DRC rule check.
+        > DRC MAXIMUM RESULTS {maxresults | ALL}
 
 ## SIMPLE RULE FILE
    ```
