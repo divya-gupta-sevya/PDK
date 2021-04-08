@@ -116,6 +116,13 @@ DRC Concepts can be divided into:
 
 4. *Dimensional Check Operations*
    The dimensional check operations generate derived error layers, derived edge layers, or derived polygon layers by measuring the separation of edges on one- or two-input layers.
+   - Internal
+      - For single layer syntax, It measures the separation between internal facing side of edges from same polygon on Layer1. 
+      - For two layer syntax, It measures interior facing edges of Layer1 and interior facing edges of Layer2
+
+   - External
+     
+      
     
     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/dimensional_check_operations.png)
 
