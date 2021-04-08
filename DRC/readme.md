@@ -1,5 +1,6 @@
-## NEED FOR DRC
-The purpose of doing DRC - Design Rule Checks, is to make sure that all the polygons and layers from the layout database follow through the manufacturing process guidelines. This follow through is ensured by running the layout against a DRC rule deck provided by the fabrication team in order for the design to meet functionality, manufacturability and avoid chip failure. If the results thus obtained fall within permissible margin set up by fabs, the design is said to be Clean, else it’s said to be ‘Dirty’ (needs to be fixed and made clean). 
+## DRC
+### Introduction
+Design Rule Check (DRC) is a part of EDA tools whose purpose is to make sure that all the polygons and layers from the layout database follow through the manufacturing process guidelines recommended by foundry for reliable and fault free production of the chips. This follow through is ensured by running the layout against a DRC rule deck in order for the design to meet functionality, manufacturability and avoid chip failure. If the results thus obtained fall within permissible margin set up by fabs, the design is said to be Clean, else it’s said to be ‘Dirty’ (needs to be fixed and made clean).
 
 ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/DRC%20Flow.jpg)
 
