@@ -2,7 +2,7 @@
 ### Introduction
 Design Rule Check (DRC) is a part of EDA tools whose purpose is to make sure that all the polygons and layers from the layout database follow through the manufacturing process guidelines recommended by foundry for reliable and fault free production of the chips. This follow through is ensured by running the layout against a DRC rule deck in order for the design to meet functionality, manufacturability and avoid chip failure. If the results thus obtained fall within permissible margin set up by fabs, the design is said to be Clean, else it’s said to be ‘Dirty’ (needs to be fixed and made clean).
 
-    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/DRC%20Flow.jpg)
+   ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/DRC%20Flow.jpg)
 
 Fig. DRC Flow
 
@@ -226,7 +226,7 @@ DRC Concepts can be divided into:
 3. *DRC Summary Report* (optional)
     It includes general information about the run, warnings generated during drc run, list of original layers and number of original shapes processed for that layer, list of rulechecks and number of results generated, total runtime, number of original shapes processed, number of rulechecks executed. If DRC Summary Report specification statement is present only then this file is generated. You can use REPLACE & APPEND keywords to decide whether the file should be overwritten or appended to.
 
-        ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/heading_drc_Summary.png)
+      ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/heading_drc_Summary.png)
 
 
 
