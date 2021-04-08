@@ -125,18 +125,26 @@ DRC Concepts can be divided into:
    - External
       - For the single-layer syntax, It measures the separations between exterior-facing edges on layer1.
       - For the two-layer syntax, It measures the separations between the exterior-facing sides of layer1 edges and the exterior-facing sides of layer2 edges.
+   
+    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/External%20Check.PNG)
      
    - Coincident Edge
       - Selects all layer1 edges or edge portions coincident with layer2 edges.
+
+    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/Coincident%20Edge.PNG)
       
    - Abut
       - Measures the separation between intersecting edges and is interpreted in degrees.
       - Default value is >=0<180 and the output from this operation is in addition to any other output from different operation.
       - Recommended value for any operation in the rule file is Abut<90.
+
+     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/Abut%20Operation.PNG)
+     
    
    - With Edge
       - Selects all layer1 polygons that share edges or edge segments on layer2.
       
+    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/With%20Edge%20Operation.PNG)
     
     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/dimensional_check_operations.png)
 
