@@ -119,7 +119,8 @@ DRC Concepts can be divided into:
    - Internal
       - For single layer syntax, It measures the separation between internal facing side of edges from same polygon on Layer1. 
       - For two layer syntax, It measures interior facing edges of Layer1 and interior facing edges of Layer2
-    ![alt text]
+    
+    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/Internal%20Check.PNG)
       
    - External
       - For the single-layer syntax, It measures the separations between exterior-facing edges on layer1.
