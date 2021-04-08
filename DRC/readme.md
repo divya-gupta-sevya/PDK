@@ -145,8 +145,6 @@ DRC Concepts can be divided into:
       - Selects all layer1 polygons that share edges or edge segments on layer2.
       
     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/With%20Edge%20Operation.PNG)
-    
-    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/dimensional_check_operations.png)
 
 5. *DRC Output Control Statements*
    - DRC RESULTS DATABASE:
