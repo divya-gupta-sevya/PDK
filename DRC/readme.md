@@ -119,9 +119,11 @@ DRC Concepts can be divided into:
    - Internal
       - For single layer syntax, It measures the separation between internal facing side of edges from same polygon on Layer1. 
       - For two layer syntax, It measures interior facing edges of Layer1 and interior facing edges of Layer2
-
+    ![alt text]
+      
    - External
-      - 
+      - For the single-layer syntax, It measures the separations between exterior-facing edges on layer1.
+      - For the two-layer syntax, It measures the separations between the exterior-facing sides of layer1 edges and the exterior-facing sides of layer2 edges.
      
    - Coincident Edge
       - Selects all layer1 edges or edge portions coincident with layer2 edges.
@@ -133,7 +135,6 @@ DRC Concepts can be divided into:
    
    - With Edge
       - Selects all layer1 polygons that share edges or edge segments on layer2.
-
       
     
     ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/dimensional_check_operations.png)
