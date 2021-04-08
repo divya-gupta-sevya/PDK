@@ -2,7 +2,7 @@
 ### Introduction
 Design Rule Check (DRC) is a part of EDA tools whose purpose is to make sure that all the polygons and layers from the layout database follow through the manufacturing process guidelines recommended by foundry for reliable and fault free production of the chips. This follow through is ensured by running the layout against a DRC rule deck in order for the design to meet functionality, manufacturability and avoid chip failure. If the results thus obtained fall within permissible margin set up by fabs, the design is said to be Clean, else it’s said to be ‘Dirty’ (needs to be fixed and made clean).
 
-![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/DRC%20Flow.jpg)
+    ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/DRC%20Flow.jpg)
 
 Fig. DRC Flow
 
@@ -185,37 +185,37 @@ DRC Concepts can be divided into:
         > DRC MAXIMUM RESULTS {maxresults | ALL}
 
 ## SIMPLE RULE FILE
-   ```
-    //--------------------------------
-    //OPTIONAL HEADER INFORMATION
-    //--------------------------------
-    // REQUIRED DRC SPECIFICATION STATEMENTS
-    LAYOUT SYSTEM GDSII
-    LAYOUT PATH “./mydesign.gds”
-    LAYOUT PRIMARY top_cell
-    DRC RESULTS DATABASE “../drc_results”
-    
-    // OPTIONAL INCLUDED RULE FILES
-    INCLUDE “/home/.../.../golden_rule_file"
-    
-    // ONE OR MORE DRAWN LAYER DEFINITIONS
-    LAYER diff 24                   // DIFFUSION
-    LAYER poly 5                    // POLY
-    LAYER metal2 9                  // METAL2
-    LAYER via 12                    // VIA
-    
-    // ONE OR MORE DERIVED LAYER DEFINITIONS
-    gate = poly AND diff            // GATE
-    sd = diff NOT gate              // SOURCE-DRAIN
-    
-    // ONE OR MORE DRC RULECHECKS
-    min_gate_length {
-    @ Gate length along POLY must be >= 3 microns.
-    x = INSIDE EDGE poly diff
-    INTERNAL x < 3
-    }
-    
-```
+            ```
+            //--------------------------------
+            //OPTIONAL HEADER INFORMATION
+            //--------------------------------
+            // REQUIRED DRC SPECIFICATION STATEMENTS
+            LAYOUT SYSTEM GDSII
+            LAYOUT PATH “./mydesign.gds”
+            LAYOUT PRIMARY top_cell
+            DRC RESULTS DATABASE “../drc_results”
+
+            // OPTIONAL INCLUDED RULE FILES
+            INCLUDE “/home/.../.../golden_rule_file"
+
+            // ONE OR MORE DRAWN LAYER DEFINITIONS
+            LAYER diff 24                   // DIFFUSION
+            LAYER poly 5                    // POLY
+            LAYER metal2 9                  // METAL2
+            LAYER via 12                    // VIA
+
+            // ONE OR MORE DERIVED LAYER DEFINITIONS
+            gate = poly AND diff            // GATE
+            sd = diff NOT gate              // SOURCE-DRAIN
+
+            // ONE OR MORE DRC RULECHECKS
+            min_gate_length {
+            @ Gate length along POLY must be >= 3 microns.
+            x = INSIDE EDGE poly diff
+            INTERNAL x < 3
+            }
+
+            ```
 ### Output:
 1. *Run Transcript* - shows statistics regarding Rule File Compilation, Layout Data Input, Executive Processes. It shows the pathname of the rule file, the contents of the rule file, and the amount of CPU and real time required for compilation, shows cell, layer, and text information, and a summary of the layout data, reports event logs, warning messages, and summary information. It also reports operating parameters, such as maximum results per check, maximum vertices per result polygon (DRC).
     The layer statistics differs for different Calibre applications i.e., the layer statistic for layer1 in flat tun will be different than the layer statistic for layer1 in hierarchical run.
@@ -226,7 +226,7 @@ DRC Concepts can be divided into:
 3. *DRC Summary Report* (optional)
     It includes general information about the run, warnings generated during drc run, list of original layers and number of original shapes processed for that layer, list of rulechecks and number of results generated, total runtime, number of original shapes processed, number of rulechecks executed. If DRC Summary Report specification statement is present only then this file is generated. You can use REPLACE & APPEND keywords to decide whether the file should be overwritten or appended to.
 
-![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/heading_drc_Summary.png)
+        ![alt text](https://github.com/divya-gupta-sevya/PDK-/blob/main/heading_drc_Summary.png)
 
 
 
