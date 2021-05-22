@@ -11,48 +11,35 @@ Fig. DRC Flow
 2. Layout Database (GDSII, OASIS, Binary, ASCII)
     Binary & ASCII are properietary to Metor Graphics Corporation and only work in flat Calibre nmDRC.
 
-### Command Line Invocations:
+## CREATE LAYOUT OF A GATE
 
-Flat run (Calibre nmDRC)
-> calibre -drc rule_file
+Launch Cadence Virtuoso from terminal -> open Library Manager 
 
-Hierarchical run (Calibre nmDRC-H)
-> calibre -drc -hier rule_file
+File -> New -> Library -> enter Library Name (eg., Practice) -> Attach to existing library (relevant to the one that is available at your end) -> OK
 
-Multithreaded hierarchical runs
-> calibre -drc -hier -turbo -hyper rule_file
-> calibre -drc -hier -turbo -remote host1,host2,host3 -hyper rule_file
+Select Practice library -> File -> New -> Cellview -> enter Cellname (eg., Gate1), select type as 'layout' -> OK
 
-## CALIBRE STEPS FOR DRC
-Setup the server and path to Calibre. 
+In the Layout Editor, go to Layer Paletter, in filter type 'OD' -> select OD drawing -> press 'r' -> draw a horizontal rectangle in layout window (black area)
 
-Click the Settings button (Spanner icon) next to Calibre Toolbar (DRC/LVS/PEX/RVE/Settings):
+Now, in Layer Paletter, in filter type 'PO' -> select PO drawing -> press 'r' -> draw a small thin vertical rectangle on top of OD
 
-For the host enter: **192.168.6.50** 
+The common area ( or AND of the two ) is your GATE region.
 
-For calibre give the entire path to the current tool: **$CALIBRE_HOME/bin/calibre**
+## STEPS TO RUN CALIBRE-nmDRC
 
-In L-Edit, click Run Calibre DRC from the Calibre toolbar which will launch the GUI.
+After you've launched Virtuoso and opened Gate1 layout -> Calibre -> nmDRC -> DRC -> Calibre Interactive window pops up (Select OK on Customization Settings window)
 
-If the Load Runset File dialog box appears, you can Cancel it.
+In Calibre Interactive Window -> select Rules -> it should already have a runset/ rule file or Deck correcponding to the technology, if not browse to the correct one
 
-In the GUI, click the Rules button in the left Panel and enter the following info:
+You can click Load to test any compilation issue with the rule file.
 
-DRC Rules File: Browse to the Calibre rule file eg. $XFAB_CALIBRE_RUNSET/xt018_drc_runset
+Click Inputs -> the defaults should be from Layout Viewer. Check 'Layout File' & 'Top Cell'.
 
-You can click Load to test any problem with the rule file.
+Click Run DRC. Since we're running DRC for the first time on this layout - no overwrite popup comes.
 
-Check Selection Recipe: Ignore
+If you're running DRC on a layout after that, it'll ask if you want to overwrite layout file -> select Overwrite.
 
-DRC Run Directory: Ideally **$PROJDIR/DRC**
-
-Click Inputs and setup the inputs but the defaults should be Ok eg. GDSII/Export from Layout Viewer
-
-Click Outputs and the defaults should be fine.
-
-If none of the left panel buttons are red, click Run DRC
-
-If the run was successful, save the GUI settings to a file by clicking File->Save Runset in the DRC folder created before which can be loaded the next time.
+If the run was successful, drc.summary and drc.results (RVE) windows open up. These 2 windows are used to debug the errors.
 
 ## DRC Concepts
 DRC Concepts can be divided into:
